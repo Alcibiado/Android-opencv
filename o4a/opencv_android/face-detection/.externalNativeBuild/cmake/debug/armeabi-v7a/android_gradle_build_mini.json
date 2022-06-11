@@ -1,0 +1,21 @@
+{
+  "buildFiles": [
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\platforms.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVConfig.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVModules.cmake",
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVConfig-version.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\face-detection\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "detection_based_tracker-Debug-armeabi-v7a": {
+      "artifactName": "detection_based_tracker",
+      "buildCommand": "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\face-detection\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target detection_based_tracker",
+      "abi": "armeabi-v7a",
+      "output": "D:\\Desktop\\aruco\\o4a\\opencv_android\\face-detection\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libdetection_based_tracker.so"
+    }
+  }
+}

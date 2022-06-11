@@ -1,0 +1,40 @@
+{
+  "stringTable": {
+    "0": "D:/Desktop/aruco/o4a/opencv_android/opencv/.externalNativeBuild/cmake/release/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi21 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -Oz -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\platforms.cmake",
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Desktop\\aruco\\o4a\\opencv_android\\opencv\\libcxx_helper\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\opencv\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "opencv_jni_shared-Release-armeabi-v7a": {
+      "buildCommand": "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\opencv\\.externalNativeBuild\\cmake\\release\\armeabi-v7a --target opencv_jni_shared",
+      "buildType": "release",
+      "toolchain": "3848300961",
+      "abi": "armeabi-v7a",
+      "artifactName": "opencv_jni_shared",
+      "files": [
+        {
+          "src": "D:\\Desktop\\aruco\\o4a\\opencv_android\\opencv\\libcxx_helper\\dummy.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "output": "D:\\Desktop\\aruco\\o4a\\opencv_android\\opencv\\.externalNativeBuild\\cmake\\release\\armeabi-v7a\\libopencv_jni_shared.a"
+    }
+  },
+  "toolchains": {
+    "3848300961": {
+      "cppCompilerExecutable": "D:\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

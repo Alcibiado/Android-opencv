@@ -1,0 +1,47 @@
+{
+  "stringTable": {
+    "0": "D:/Desktop/aruco/o4a/opencv_android/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi21 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Ddetection_based_tracker_EXPORTS -ID:/Desktop/aruco/opencv-4.4.0/samples/android/face-detection/jni -isystem D:/Desktop/aruco/o4a -isystem D:/Desktop/aruco/opencv-4.4.0/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/core/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/flann/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/ml/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/photo/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/dnn/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/features2d/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/videoio/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/calib3d/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/highgui/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/objdetect/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/stitching/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/video/include -isystem D:/Desktop/aruco/opencv_contrib-4.4.0/modules/aruco/include -isystem D:/Desktop/aruco/opencv-4.4.0/modules/gapi/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\platforms.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVConfig.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVModules.cmake",
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVConfig-version.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\face-detection\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "detection_based_tracker-Debug-armeabi-v7a": {
+      "buildCommand": "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\face-detection\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target detection_based_tracker",
+      "buildType": "debug",
+      "toolchain": "3848300961",
+      "abi": "armeabi-v7a",
+      "artifactName": "detection_based_tracker",
+      "files": [
+        {
+          "src": "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\DetectionBasedTracker_jni.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\face-detection\\jni\\DetectionBasedTracker_jni.h",
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "output": "D:\\Desktop\\aruco\\o4a\\opencv_android\\face-detection\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libdetection_based_tracker.so"
+    }
+  },
+  "toolchains": {
+    "3848300961": {
+      "cppCompilerExecutable": "D:\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

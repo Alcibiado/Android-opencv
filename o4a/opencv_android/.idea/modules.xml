@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_android.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/15-puzzle/opencv_android.15-puzzle.iml" filepath="$PROJECT_DIR$/.idea/modules/15-puzzle/opencv_android.15-puzzle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/camera-calibration/opencv_android.camera-calibration.iml" filepath="$PROJECT_DIR$/.idea/modules/camera-calibration/opencv_android.camera-calibration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/color-blob-detection/opencv_android.color-blob-detection.iml" filepath="$PROJECT_DIR$/.idea/modules/color-blob-detection/opencv_android.color-blob-detection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/face-detection/opencv_android.face-detection.iml" filepath="$PROJECT_DIR$/.idea/modules/face-detection/opencv_android.face-detection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/image-manipulations/opencv_android.image-manipulations.iml" filepath="$PROJECT_DIR$/.idea/modules/image-manipulations/opencv_android.image-manipulations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv/opencv_android.opencv.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv/opencv_android.opencv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorial-1-camerapreview/opencv_android.tutorial-1-camerapreview.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorial-1-camerapreview/opencv_android.tutorial-1-camerapreview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorial-2-mixedprocessing/opencv_android.tutorial-2-mixedprocessing.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorial-2-mixedprocessing/opencv_android.tutorial-2-mixedprocessing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorial-3-cameracontrol/opencv_android.tutorial-3-cameracontrol.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorial-3-cameracontrol/opencv_android.tutorial-3-cameracontrol.iml" />
+    </modules>
+  </component>
+</project>

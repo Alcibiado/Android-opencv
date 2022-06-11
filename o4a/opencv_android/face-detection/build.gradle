@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "org.opencv.samples.facedetect"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 301
+        versionName "3.01"
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DOpenCV_DIR=" + project(':opencv').projectDir + "/../../",
+"-DANDROID_TOOLCHAIN=clang",
+"-DANDROID_STL=c++_shared"
+                targets "detection_based_tracker"
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['D:/Desktop/aruco/opencv-4.4.0/samples/android/face-detection/src']
+            aidl.srcDirs = ['D:/Desktop/aruco/opencv-4.4.0/samples/android/face-detection/src']
+            res.srcDirs = ['D:/Desktop/aruco/opencv-4.4.0/samples/android/face-detection/res']
+            manifest.srcFile 'D:/Desktop/aruco/opencv-4.4.0/samples/android/face-detection/gradle/AndroidManifest.xml'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+             path 'D:/Desktop/aruco/opencv-4.4.0/samples/android/face-detection/jni/CMakeLists.txt'
+        }
+    }
+}
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':opencv')
+}

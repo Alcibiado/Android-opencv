@@ -1,0 +1,3 @@
+D:/Desktop/aruco/o4a/opencv_android/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/detection_based_tracker.dir
+D:/Desktop/aruco/o4a/opencv_android/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Desktop/aruco/o4a/opencv_android/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir

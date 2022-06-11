@@ -1,0 +1,9 @@
+Check for working CXX compiler: D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe
+Check for working CXX compiler: D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works
+Detecting CXX compiler ABI info
+Detecting CXX compiler ABI info - done
+Detecting CXX compile features
+Detecting CXX compile features - done
+ANDROID_ABI=armeabi-v7a
+Found OpenCV: D:/Desktop/aruco/o4a (found version "4.4.0") found components:  opencv_java 
+Configuring done

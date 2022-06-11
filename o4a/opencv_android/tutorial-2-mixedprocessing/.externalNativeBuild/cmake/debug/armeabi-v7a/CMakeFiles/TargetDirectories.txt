@@ -1,0 +1,3 @@
+D:/Desktop/aruco/o4a/opencv_android/tutorial-2-mixedprocessing/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/mixed_sample.dir
+D:/Desktop/aruco/o4a/opencv_android/tutorial-2-mixedprocessing/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Desktop/aruco/o4a/opencv_android/tutorial-2-mixedprocessing/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir

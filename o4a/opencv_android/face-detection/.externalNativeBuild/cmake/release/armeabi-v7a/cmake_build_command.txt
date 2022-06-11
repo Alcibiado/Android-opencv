@@ -1,0 +1,22 @@
+Executable : D:\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe
+arguments : 
+-HD:\Desktop\aruco\opencv-4.4.0\samples\android\face-detection\jni
+-BD:\Desktop\aruco\o4a\opencv_android\face-detection\.externalNativeBuild\cmake\release\armeabi-v7a
+-DANDROID_ABI=armeabi-v7a
+-DANDROID_PLATFORM=android-21
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\Desktop\aruco\o4a\opencv_android\face-detection\build\intermediates\cmake\release\obj\armeabi-v7a
+-DCMAKE_BUILD_TYPE=Release
+-DANDROID_NDK=D:\Android\Sdk\ndk\21.4.7075529
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DCMAKE_SYSTEM_VERSION=21
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_ANDROID_NDK=D:\Android\Sdk\ndk\21.4.7075529
+-DCMAKE_TOOLCHAIN_FILE=D:\Android\Sdk\ndk\21.4.7075529\build\cmake\android.toolchain.cmake
+-G Ninja
+-DCMAKE_MAKE_PROGRAM=D:\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+-DOpenCV_DIR=D:\Desktop\aruco\o4a\opencv_android\opencv/../../
+-DANDROID_TOOLCHAIN=clang
+-DANDROID_STL=c++_shared
+jvmArgs : 
+

@@ -1,0 +1,398 @@
+Compilation failed:
+    source file: 'D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_0c855 && [1/2] Building CXX object CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o
+FAILED: CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o 
+D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++  -O2 -g -DNDEBUG -fPIE -std=c++11 -MD -MT CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o -MF CMakeFiles\cmTC_0c855.dir\cpu_fp16.cpp.o.d -o CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o -c D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp
+D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp:21:25: error: use of undeclared identifier 'vcvt_f16_f32'
+    float16x4_t v_dst = vcvt_f16_f32(v_src);
+                        ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+===== END =====
+
+Compilation failed:
+    source file: 'D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp'
+    check option: ' -mfpu=neon-fp16 -mfp16-format=ieee'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_ca017 && [1/2] Building CXX object CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o
+FAILED: CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o 
+D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++  -O2 -g -DNDEBUG -fPIE    -mfpu=neon-fp16 -mfp16-format=ieee -std=c++11 -MD -MT CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o -MF CMakeFiles\cmTC_ca017.dir\cpu_fp16.cpp.o.d -o CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o -c D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp
+clang++: error: unknown argument: '-mfp16-format=ieee'
+ninja: build stopped: subcommand failed.
+
+
+===== END =====
+
+Determining if the include file io.h exists failed with the following output:
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_925d8 && [1/2] Building C object CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o 
+D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o -MF CMakeFiles\cmTC_925d8.dir\CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'io.h' file not found
+#include <io.h>
+         ^~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+
+Determining size of INT8 failed with the following output:
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_f3ceb && [1/2] Building C object CMakeFiles/cmTC_f3ceb.dir/int8.c.o
+FAILED: CMakeFiles/cmTC_f3ceb.dir/int8.c.o 
+D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_f3ceb.dir/int8.c.o -MF CMakeFiles\cmTC_f3ceb.dir\int8.c.o.d -o CMakeFiles/cmTC_f3ceb.dir/int8.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:29:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:30:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:31:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:32:12: error: use of undeclared identifier 'INT8'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:33:12: error: use of undeclared identifier 'INT8'
+  ('0' +  (SIZE    % 10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT8))
+                     ^
+5 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT8))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of INT16 failed with the following output:
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_8872f && [1/2] Building C object CMakeFiles/cmTC_8872f.dir/int16.c.o
+FAILED: CMakeFiles/cmTC_8872f.dir/int16.c.o 
+D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_8872f.dir/int16.c.o -MF CMakeFiles\cmTC_8872f.dir\int16.c.o.d -o CMakeFiles/cmTC_8872f.dir/int16.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:29:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:30:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:31:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:32:12: error: use of undeclared identifier 'INT16'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:33:12: error: use of undeclared identifier 'INT16'
+  ('0' +  (SIZE    % 10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT16))
+                     ^
+5 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT16))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of INT32 failed with the following output:
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_9415a && [1/2] Building C object CMakeFiles/cmTC_9415a.dir/int32.c.o
+FAILED: CMakeFiles/cmTC_9415a.dir/int32.c.o 
+D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_9415a.dir/int32.c.o -MF CMakeFiles\cmTC_9415a.dir\int32.c.o.d -o CMakeFiles/cmTC_9415a.dir/int32.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:29:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:30:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:31:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:32:12: error: use of undeclared identifier 'INT32'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:33:12: error: use of undeclared identifier 'INT32'
+  ('0' +  (SIZE    % 10)),
+           ^
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:27:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(INT32))
+                     ^
+5 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(INT32))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function setmode exists failed with the following output:
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_85c5b && [1/2] Building C object CMakeFiles/cmTC_85c5b.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_85c5b
+FAILED: cmTC_85c5b 
+cmd.exe /C "cd . && D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=setmode -O2 -g -DNDEBUG -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined  -Wl,--gc-sections  -Wl,--as-needed CMakeFiles/cmTC_85c5b.dir/CheckFunctionExists.c.o -o cmTC_85c5b  -latomic -lm && cd ."
+ld: error: undefined symbol: setmode
+>>> referenced by CheckFunctionExists.c:17 (D:/CMake/share/cmake-3.23/Modules\CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_85c5b.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function lfind exists failed with the following output:
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_dbe98 && [1/2] Building C object CMakeFiles/cmTC_dbe98.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_dbe98
+FAILED: cmTC_dbe98 
+cmd.exe /C "cd . && D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=lfind -O2 -g -DNDEBUG -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined  -Wl,--gc-sections  -Wl,--as-needed CMakeFiles/cmTC_dbe98.dir/CheckFunctionExists.c.o -o cmTC_dbe98  -latomic -lm && cd ."
+ld: error: undefined symbol: lfind
+>>> referenced by CheckFunctionExists.c:17 (D:/CMake/share/cmake-3.23/Modules\CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_dbe98.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: tfind
+>>> defined in: D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19\libc.so
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-maybe-uninitialized', did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-maybe-uninitialized'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_6c8ee && [1/2] Building C object CMakeFiles/cmTC_6c8ee.dir/src.c.o
+warning: unknown warning option '-Wno-maybe-uninitialized'; did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking C executable cmTC_6c8ee
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-class-memaccess', did you mean '-Wno-class-varargs'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-class-memaccess'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_453e2 && [1/2] Building CXX object CMakeFiles/cmTC_453e2.dir/src.cxx.o
+warning: unknown warning option '-Wno-class-memaccess'; did you mean '-Wno-class-varargs'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking CXX executable cmTC_453e2
+
+
+===== END =====
+

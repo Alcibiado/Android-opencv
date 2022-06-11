@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "org.opencv.samples.imagemanipulations"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 301
+        versionName "3.01"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['D:/Desktop/aruco/opencv-4.4.0/samples/android/image-manipulations/src']
+            aidl.srcDirs = ['D:/Desktop/aruco/opencv-4.4.0/samples/android/image-manipulations/src']
+            res.srcDirs = ['D:/Desktop/aruco/opencv-4.4.0/samples/android/image-manipulations/res']
+            manifest.srcFile 'D:/Desktop/aruco/opencv-4.4.0/samples/android/image-manipulations/gradle/AndroidManifest.xml'
+        }
+    }
+}
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':opencv')
+}

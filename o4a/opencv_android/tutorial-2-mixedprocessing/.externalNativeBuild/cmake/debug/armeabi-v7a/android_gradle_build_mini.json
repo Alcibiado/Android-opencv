@@ -1,0 +1,21 @@
+{
+  "buildFiles": [
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\platforms.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\tutorial-2-mixedprocessing\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVConfig.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\tutorial-2-mixedprocessing\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVModules.cmake",
+    "D:\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\tutorial-2-mixedprocessing\\jni\\..\\..\\..\\..\\..\\o4a\\OpenCVConfig-version.cmake",
+    "D:\\Desktop\\aruco\\opencv-4.4.0\\samples\\android\\tutorial-2-mixedprocessing\\jni\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\tutorial-2-mixedprocessing\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "mixed_sample-Debug-armeabi-v7a": {
+      "artifactName": "mixed_sample",
+      "buildCommand": "D:\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe --build D:\\Desktop\\aruco\\o4a\\opencv_android\\tutorial-2-mixedprocessing\\.externalNativeBuild\\cmake\\debug\\armeabi-v7a --target mixed_sample",
+      "abi": "armeabi-v7a",
+      "output": "D:\\Desktop\\aruco\\o4a\\opencv_android\\tutorial-2-mixedprocessing\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libmixed_sample.so"
+    }
+  }
+}
