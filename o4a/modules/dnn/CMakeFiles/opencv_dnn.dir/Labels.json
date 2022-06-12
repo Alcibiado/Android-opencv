@@ -1424,6 +1424,15 @@
 			]
 		},
 		{
+			"file" : "D:/Desktop/aruco/o4a/modules/dnn/layers/layers_common.avx.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_dnn",
+				"Module"
+			]
+		},
+		{
 			"file" : "D:/Desktop/aruco/o4a/cvconfig.h"
 		},
 		{

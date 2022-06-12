@@ -425,6 +425,15 @@
 			]
 		},
 		{
+			"file" : "D:/Desktop/aruco/o4a/modules/features2d/sift.sse4_1.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_features2d",
+				"Module"
+			]
+		},
+		{
 			"file" : "D:/Desktop/aruco/o4a/cvconfig.h"
 		},
 		{

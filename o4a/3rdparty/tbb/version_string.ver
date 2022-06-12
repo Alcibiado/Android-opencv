@@ -1,6 +1,6 @@
 #define __TBB_VERSION_STRINGS(N) \
 #N": BUILD_PACKAGE	OpenCV 4.4.0" ENDL \
 #N": BUILD_HOST 	Windows 10.0.19044 AMD64" ENDL \
-#N": BUILD_TARGET	Android 19 armv7-a" ENDL \
-#N": BUILD_COMPILER	D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe (ver 14.0.1)" ENDL \
+#N": BUILD_TARGET	Android 1 i686" ENDL \
+#N": BUILD_COMPILER	D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe (ver 9.0)" ENDL \
 #N": BUILD_COMMAND	use cv::getBuildInformation() for details" ENDL

@@ -1145,6 +1145,15 @@
 			]
 		},
 		{
+			"file" : "D:/Desktop/aruco/o4a/modules/gapi/backends/fluid/gfluidimgproc_func.sse4_1.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_gapi",
+				"Module"
+			]
+		},
+		{
 			"file" : "D:/Desktop/aruco/o4a/cvconfig.h"
 		},
 		{

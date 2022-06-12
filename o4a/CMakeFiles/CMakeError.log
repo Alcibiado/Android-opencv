@@ -1,42 +1,35 @@
-Compilation failed:
-    source file: 'D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp'
-    check option: ''
-===== BUILD LOG =====
+Determining if the posix_memalign exist failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_0c855 && [1/2] Building CXX object CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o
-FAILED: CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o 
-D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++  -O2 -g -DNDEBUG -fPIE -std=c++11 -MD -MT CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o -MF CMakeFiles\cmTC_0c855.dir\cpu_fp16.cpp.o.d -o CMakeFiles/cmTC_0c855.dir/cpu_fp16.cpp.o -c D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp
-D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp:21:25: error: use of undeclared identifier 'vcvt_f16_f32'
-    float16x4_t v_dst = vcvt_f16_f32(v_src);
-                        ^
-1 error generated.
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_b2c17 && [1/2] Building C object CMakeFiles/cmTC_b2c17.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_b2c17
+FAILED: cmTC_b2c17 
+cmd.exe /C "cd . && D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat    -fsigned-char -W -Wall    -Wformat -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -DNDEBUG   -DNDEBUG -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   -Wl,--as-needed CMakeFiles/cmTC_b2c17.dir/CheckSymbolExists.c.o -o cmTC_b2c17  -latomic -lm && cd ."
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: undefined reference to 'posix_memalign'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ninja: build stopped: subcommand failed.
 
 
-===== END =====
+File D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
 
-Compilation failed:
-    source file: 'D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp'
-    check option: ' -mfpu=neon-fp16 -mfp16-format=ieee'
-===== BUILD LOG =====
-Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
-
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_ca017 && [1/2] Building CXX object CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o
-FAILED: CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o 
-D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++  -O2 -g -DNDEBUG -fPIE    -mfpu=neon-fp16 -mfp16-format=ieee -std=c++11 -MD -MT CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o -MF CMakeFiles\cmTC_ca017.dir\cpu_fp16.cpp.o.d -o CMakeFiles/cmTC_ca017.dir/cpu_fp16.cpp.o -c D:/Desktop/aruco/opencv-4.4.0/cmake/checks/cpu_fp16.cpp
-clang++: error: unknown argument: '-mfp16-format=ieee'
-ninja: build stopped: subcommand failed.
-
-
-===== END =====
-
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_memalign
+  return ((int*)(&posix_memalign))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
 Determining if the include file io.h exists failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_925d8 && [1/2] Building C object CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o
-FAILED: CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o 
-D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o -MF CMakeFiles\cmTC_925d8.dir\CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_925d8.dir/CheckIncludeFile.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_f661b && [1/2] Building C object CMakeFiles/cmTC_f661b.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_f661b.dir/CheckIncludeFile.c.o 
+D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -DNDEBUG   -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_f661b.dir/CheckIncludeFile.c.o -MF CMakeFiles\cmTC_f661b.dir\CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_f661b.dir/CheckIncludeFile.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckIncludeFile.c
 D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'io.h' file not found
 #include <io.h>
          ^~~~~~
@@ -48,9 +41,9 @@ ninja: build stopped: subcommand failed.
 Determining size of INT8 failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_f3ceb && [1/2] Building C object CMakeFiles/cmTC_f3ceb.dir/int8.c.o
-FAILED: CMakeFiles/cmTC_f3ceb.dir/int8.c.o 
-D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_f3ceb.dir/int8.c.o -MF CMakeFiles\cmTC_f3ceb.dir\int8.c.o.d -o CMakeFiles/cmTC_f3ceb.dir/int8.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_2042c && [1/2] Building C object CMakeFiles/cmTC_2042c.dir/int8.c.o
+FAILED: CMakeFiles/cmTC_2042c.dir/int8.c.o 
+D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -DNDEBUG   -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_2042c.dir/int8.c.o -MF CMakeFiles\cmTC_2042c.dir\int8.c.o.d -o CMakeFiles/cmTC_2042c.dir/int8.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c
 D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int8.c:29:12: error: use of undeclared identifier 'INT8'
   ('0' + ((SIZE / 10000)%10)),
            ^
@@ -141,9 +134,9 @@ int main(int argc, char *argv[])
 Determining size of INT16 failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_8872f && [1/2] Building C object CMakeFiles/cmTC_8872f.dir/int16.c.o
-FAILED: CMakeFiles/cmTC_8872f.dir/int16.c.o 
-D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_8872f.dir/int16.c.o -MF CMakeFiles\cmTC_8872f.dir\int16.c.o.d -o CMakeFiles/cmTC_8872f.dir/int16.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_bc2c6 && [1/2] Building C object CMakeFiles/cmTC_bc2c6.dir/int16.c.o
+FAILED: CMakeFiles/cmTC_bc2c6.dir/int16.c.o 
+D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -DNDEBUG   -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_bc2c6.dir/int16.c.o -MF CMakeFiles\cmTC_bc2c6.dir\int16.c.o.d -o CMakeFiles/cmTC_bc2c6.dir/int16.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c
 D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int16.c:29:12: error: use of undeclared identifier 'INT16'
   ('0' + ((SIZE / 10000)%10)),
            ^
@@ -234,9 +227,9 @@ int main(int argc, char *argv[])
 Determining size of INT32 failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_9415a && [1/2] Building C object CMakeFiles/cmTC_9415a.dir/int32.c.o
-FAILED: CMakeFiles/cmTC_9415a.dir/int32.c.o 
-D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -g -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_9415a.dir/int32.c.o -MF CMakeFiles\cmTC_9415a.dir\int32.c.o.d -o CMakeFiles/cmTC_9415a.dir/int32.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_c708e && [1/2] Building C object CMakeFiles/cmTC_c708e.dir/int32.c.o
+FAILED: CMakeFiles/cmTC_c708e.dir/int32.c.o 
+D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden  -O2 -DNDEBUG   -DNDEBUG -fPIE -MD -MT CMakeFiles/cmTC_c708e.dir/int32.c.o -MF CMakeFiles\cmTC_c708e.dir\int32.c.o.d -o CMakeFiles/cmTC_c708e.dir/int32.c.o -c D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c
 D:/Desktop/aruco/o4a/CMakeFiles/CheckTypeSize/int32.c:29:12: error: use of undeclared identifier 'INT32'
   ('0' + ((SIZE / 10000)%10)),
            ^
@@ -327,13 +320,11 @@ int main(int argc, char *argv[])
 Determining if the function setmode exists failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_85c5b && [1/2] Building C object CMakeFiles/cmTC_85c5b.dir/CheckFunctionExists.c.o
-[2/2] Linking C executable cmTC_85c5b
-FAILED: cmTC_85c5b 
-cmd.exe /C "cd . && D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=setmode -O2 -g -DNDEBUG -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined  -Wl,--gc-sections  -Wl,--as-needed CMakeFiles/cmTC_85c5b.dir/CheckFunctionExists.c.o -o cmTC_85c5b  -latomic -lm && cd ."
-ld: error: undefined symbol: setmode
->>> referenced by CheckFunctionExists.c:17 (D:/CMake/share/cmake-3.23/Modules\CheckFunctionExists.c:17)
->>>               CMakeFiles/cmTC_85c5b.dir/CheckFunctionExists.c.o:(main)
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_97b93 && [1/2] Building C object CMakeFiles/cmTC_97b93.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_97b93
+FAILED: cmTC_97b93 
+cmd.exe /C "cd . && D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=setmode -O2 -DNDEBUG   -DNDEBUG -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   -Wl,--as-needed CMakeFiles/cmTC_97b93.dir/CheckFunctionExists.c.o -o cmTC_97b93  -latomic -lm && cd ."
+D:/CMake/share/cmake-3.23/Modules/CheckFunctionExists.c:17: error: undefined reference to 'setmode'
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ninja: build stopped: subcommand failed.
 
@@ -342,19 +333,35 @@ ninja: build stopped: subcommand failed.
 Determining if the function lfind exists failed with the following output:
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_dbe98 && [1/2] Building C object CMakeFiles/cmTC_dbe98.dir/CheckFunctionExists.c.o
-[2/2] Linking C executable cmTC_dbe98
-FAILED: cmTC_dbe98 
-cmd.exe /C "cd . && D:\Android\Sdk\ndk\24.0.8215888\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=armv7-none-linux-androideabi19 --sysroot=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments  -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=lfind -O2 -g -DNDEBUG -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined  -Wl,--gc-sections  -Wl,--as-needed CMakeFiles/cmTC_dbe98.dir/CheckFunctionExists.c.o -o cmTC_dbe98  -latomic -lm && cd ."
-ld: error: undefined symbol: lfind
->>> referenced by CheckFunctionExists.c:17 (D:/CMake/share/cmake-3.23/Modules\CheckFunctionExists.c:17)
->>>               CMakeFiles/cmTC_dbe98.dir/CheckFunctionExists.c.o:(main)
->>> did you mean: tfind
->>> defined in: D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19\libc.so
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_487a2 && [1/2] Building C object CMakeFiles/cmTC_487a2.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_487a2
+FAILED: cmTC_487a2 
+cmd.exe /C "cd . && D:\Android\Sdk\ndk\21.4.7075529\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=i686-none-linux-android16 --gcc-toolchain=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2 -mfpmath=sse -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=lfind -O2 -DNDEBUG   -DNDEBUG -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   -Wl,--as-needed CMakeFiles/cmTC_487a2.dir/CheckFunctionExists.c.o -o cmTC_487a2  -latomic -lm && cd ."
+D:/CMake/share/cmake-3.23/Modules/CheckFunctionExists.c:17: error: undefined reference to 'lfind'
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ninja: build stopped: subcommand failed.
 
 
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-unused-but-set-variable', did you mean '-Wno-unused-const-variable'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-unused-but-set-variable'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_af285 && [1/2] Building C object CMakeFiles/cmTC_af285.dir/src.c.o
+warning: unknown warning option '-Wno-unused-but-set-variable'; did you mean '-Wno-unused-const-variable'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking C executable cmTC_af285
+
+
+===== END =====
 
 Build output check failed:
     Regex: 'unknown .*option'
@@ -365,13 +372,113 @@ Compilation failed:
 ===== BUILD LOG =====
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_6c8ee && [1/2] Building C object CMakeFiles/cmTC_6c8ee.dir/src.c.o
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_41483 && [1/2] Building C object CMakeFiles/cmTC_41483.dir/src.c.o
 warning: unknown warning option '-Wno-maybe-uninitialized'; did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]
 D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
 #pragma
        ^
 2 warnings generated.
-[2/2] Linking C executable cmTC_6c8ee
+[2/2] Linking C executable cmTC_41483
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-misleading-indentation', did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-misleading-indentation'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_23729 && [1/2] Building C object CMakeFiles/cmTC_23729.dir/src.c.o
+warning: unknown warning option '-Wno-misleading-indentation'; did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking C executable cmTC_23729
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-unused-but-set-parameter', did you mean '-Wno-unused-parameter'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-unused-but-set-parameter'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_029ed && [1/2] Building C object CMakeFiles/cmTC_029ed.dir/src.c.o
+warning: unknown warning option '-Wno-unused-but-set-parameter'; did you mean '-Wno-unused-parameter'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking C executable cmTC_029ed
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-pointer-compare' [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-pointer-compare'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_c6dce && [1/2] Building C object CMakeFiles/cmTC_c6dce.dir/src.c.o
+warning: unknown warning option '-Wno-pointer-compare' [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking C executable cmTC_c6dce
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-misleading-indentation', did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-misleading-indentation'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_8a018 && [1/2] Building CXX object CMakeFiles/cmTC_8a018.dir/src.cxx.o
+warning: unknown warning option '-Wno-misleading-indentation'; did you mean '-Wno-binding-in-condition'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking CXX executable cmTC_8a018
+
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-suggest-override', did you mean '-Wno-shift-overflow'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: 'D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-suggest-override'
+===== BUILD LOG =====
+Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_31186 && [1/2] Building CXX object CMakeFiles/cmTC_31186.dir/src.cxx.o
+warning: unknown warning option '-Wno-suggest-override'; did you mean '-Wno-shift-overflow'? [-Wunknown-warning-option]
+D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+[2/2] Linking CXX executable cmTC_31186
 
 
 ===== END =====
@@ -385,13 +492,13 @@ Compilation failed:
 ===== BUILD LOG =====
 Change Dir: D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_453e2 && [1/2] Building CXX object CMakeFiles/cmTC_453e2.dir/src.cxx.o
+Run Build Command(s):D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja cmTC_b890c && [1/2] Building CXX object CMakeFiles/cmTC_b890c.dir/src.cxx.o
 warning: unknown warning option '-Wno-class-memaccess'; did you mean '-Wno-class-varargs'? [-Wunknown-warning-option]
 D:/Desktop/aruco/o4a/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
 #pragma
        ^
 2 warnings generated.
-[2/2] Linking CXX executable cmTC_453e2
+[2/2] Linking CXX executable cmTC_b890c
 
 
 ===== END =====

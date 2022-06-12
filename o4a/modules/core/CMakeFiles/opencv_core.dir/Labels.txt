@@ -1083,6 +1083,22 @@ D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagmanager.hpp
  Main
  opencv_core
  Module
+D:/Desktop/aruco/o4a/modules/core/arithm.sse4_1.cpp
+ Main
+ opencv_core
+ Module
+D:/Desktop/aruco/o4a/modules/core/matmul.sse4_1.cpp
+ Main
+ opencv_core
+ Module
+D:/Desktop/aruco/o4a/modules/core/stat.sse4_2.cpp
+ Main
+ opencv_core
+ Module
+D:/Desktop/aruco/o4a/modules/core/mathfuncs_core.avx.cpp
+ Main
+ opencv_core
+ Module
 D:/Desktop/aruco/o4a/cvconfig.h
 D:/Desktop/aruco/o4a/opencv2/opencv_modules.hpp
 D:/Desktop/aruco/o4a/modules/core/opencl_kernels_core.cpp.rule

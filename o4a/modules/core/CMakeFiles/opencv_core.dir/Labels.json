@@ -2432,6 +2432,42 @@
 			]
 		},
 		{
+			"file" : "D:/Desktop/aruco/o4a/modules/core/arithm.sse4_1.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_core",
+				"Module"
+			]
+		},
+		{
+			"file" : "D:/Desktop/aruco/o4a/modules/core/matmul.sse4_1.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_core",
+				"Module"
+			]
+		},
+		{
+			"file" : "D:/Desktop/aruco/o4a/modules/core/stat.sse4_2.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_core",
+				"Module"
+			]
+		},
+		{
+			"file" : "D:/Desktop/aruco/o4a/modules/core/mathfuncs_core.avx.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_core",
+				"Module"
+			]
+		},
+		{
 			"file" : "D:/Desktop/aruco/o4a/cvconfig.h"
 		},
 		{

@@ -15,7 +15,7 @@
 ########################
 
 //No help, variable specified on the command line.
-ANDROID_ABI:UNINITIALIZED=armeabi-v7a with NEON
+ANDROID_ABI:UNINITIALIZED=x86
 
 //Android compileSdkVersion
 ANDROID_COMPILE_SDK_VERSION:STRING=26
@@ -30,7 +30,7 @@ ANDROID_GRADLE_PLUGIN_VERSION:STRING=3.2.1
 ANDROID_MIN_SDK_VERSION:STRING=21
 
 //No help, variable specified on the command line.
-ANDROID_PLATFORM_ID:UNINITIALIZED=2
+ANDROID_PLATFORM_ID:UNINITIALIZED=4
 
 //Android SDK Build Tools version
 ANDROID_SDK_BUILD_TOOLS_VERSION:STRING=30.0.3
@@ -65,6 +65,9 @@ BUILD_EXAMPLES:BOOL=OFF
 //Create Java wrapper exporting all functions of OpenCV library
 // (requires static build of OpenCV modules)
 BUILD_FAT_JAVA_LIB:BOOL=ON
+
+//Build IPP IW from source
+BUILD_IPP_IW:BOOL=ON
 
 //Build Intel ITT from source
 BUILD_ITT:BOOL=ON
@@ -188,20 +191,27 @@ BUILD_opencv_videoio:BOOL=ON
 //Include opencv_world module into the OpenCV build
 BUILD_opencv_world:BOOL=OFF
 
-CAROTENE_NS:STRING=carotene_o4t
-
 //Path to a program.
 CCACHE_PROGRAM:FILEPATH=CCACHE_PROGRAM-NOTFOUND
 
 //Path to a program.
-CMAKE_ADDR2LINE:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-addr2line.exe
+CMAKE_ADDR2LINE:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-addr2line.exe
 
-//Path to a program.
-CMAKE_AR:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-ar.exe
+//Archiver
+CMAKE_AR:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ar.exe
+
+//Flags used by the compiler during all build types.
+CMAKE_ASM_FLAGS:STRING=
+
+//Flags used by the compiler during debug builds.
+CMAKE_ASM_FLAGS_DEBUG:STRING=
+
+//Flags used by the compiler during release builds.
+CMAKE_ASM_FLAGS_RELEASE:STRING=
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+CMAKE_BUILD_TYPE:STRING=
 
 //Configs
 CMAKE_CONFIGURATION_TYPES:STRING=Debug;Release
@@ -212,20 +222,23 @@ CMAKE_CXX_COMPILER_AR:FILEPATH=CMAKE_CXX_COMPILER_AR-NOTFOUND
 //Generate index for LLVM archive
 CMAKE_CXX_COMPILER_RANLIB:FILEPATH=CMAKE_CXX_COMPILER_RANLIB-NOTFOUND
 
-//Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=-DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++
+//Flags used by the compiler during all build types.
+CMAKE_CXX_FLAGS:STRING=
 
-//Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=-g  -fno-limit-debug-info
+//Flags used by the compiler during debug builds.
+CMAKE_CXX_FLAGS_DEBUG:STRING=
 
 //Flags used by the CXX compiler during MINSIZEREL builds.
 CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
-//Flags used by the CXX compiler during RELEASE builds.
-CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+//Flags used by the compiler during release builds.
+CMAKE_CXX_FLAGS_RELEASE:STRING=
 
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//Libraries linked by default with all C++ applications.
+CMAKE_CXX_STANDARD_LIBRARIES:STRING=-latomic -lm
 
 //LLVM archiver
 CMAKE_C_COMPILER_AR:FILEPATH=CMAKE_C_COMPILER_AR-NOTFOUND
@@ -233,26 +246,29 @@ CMAKE_C_COMPILER_AR:FILEPATH=CMAKE_C_COMPILER_AR-NOTFOUND
 //Generate index for LLVM archive
 CMAKE_C_COMPILER_RANLIB:FILEPATH=CMAKE_C_COMPILER_RANLIB-NOTFOUND
 
-//Flags used by the C compiler during all build types.
-CMAKE_C_FLAGS:STRING=-DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions
+//Flags used by the compiler during all build types.
+CMAKE_C_FLAGS:STRING=
 
-//Flags used by the C compiler during DEBUG builds.
-CMAKE_C_FLAGS_DEBUG:STRING=-g  -fno-limit-debug-info
+//Flags used by the compiler during debug builds.
+CMAKE_C_FLAGS_DEBUG:STRING=
 
 //Flags used by the C compiler during MINSIZEREL builds.
 CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
-//Flags used by the C compiler during RELEASE builds.
-CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+//Flags used by the compiler during release builds.
+CMAKE_C_FLAGS_RELEASE:STRING=
 
 //Flags used by the C compiler during RELWITHDEBINFO builds.
 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
+//Libraries linked by default with all C applications.
+CMAKE_C_STANDARD_LIBRARIES:STRING=-latomic -lm
+
 //Path to a program.
 CMAKE_DLLTOOL:FILEPATH=D:/mingw64/bin/dlltool.exe
 
-//Flags used by the linker during all build types.
-CMAKE_EXE_LINKER_FLAGS:STRING=-Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined  -Wl,--gc-sections
+//Flags used by the linker.
+CMAKE_EXE_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during DEBUG builds.
 CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
@@ -273,14 +289,13 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 CMAKE_INSTALL_PREFIX:PATH=D:/Desktop/aruco/o4a/install
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/ld.lld.exe
+CMAKE_LINKER:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/ld.lld.exe
 
 //No help, variable specified on the command line.
 CMAKE_MAKE_PROGRAM:UNINITIALIZED=D:/Android/Sdk/cmake\3.10.2.4988404\bin\ninja
 
-//Flags used by the linker during the creation of modules during
-// all build types.
-CMAKE_MODULE_LINKER_FLAGS:STRING=-Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined
+//Flags used by the linker during the creation of modules.
+CMAKE_MODULE_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during the creation of modules during
 // DEBUG builds.
@@ -299,13 +314,13 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-nm.exe
+CMAKE_NM:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-nm.exe
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-objcopy.exe
+CMAKE_OBJCOPY:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-objcopy.exe
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-objdump.exe
+CMAKE_OBJDUMP:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-objdump.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -316,15 +331,14 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=OpenCV
 
-//Path to a program.
-CMAKE_RANLIB:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-ranlib.exe
+//Ranlib
+CMAKE_RANLIB:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-ranlib.exe
 
 //Path to a program.
-CMAKE_READELF:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-readelf.exe
+CMAKE_READELF:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-readelf.exe
 
-//Flags used by the linker during the creation of shared libraries
-// during all build types.
-CMAKE_SHARED_LINKER_FLAGS:STRING=-Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined
+//Flags used by the linker during the creation of dll's.
+CMAKE_SHARED_LINKER_FLAGS:STRING=
 
 //Flags used by the linker during the creation of shared libraries
 // during DEBUG builds.
@@ -370,10 +384,10 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-strip.exe
+CMAKE_STRIP:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/i686-linux-android-strip.exe
 
 //The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/build/cmake/android.toolchain.cmake
+CMAKE_TOOLCHAIN_FILE:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -433,10 +447,10 @@ CPACK_SOURCE_ZIP:BOOL=OFF
 CPUFEATURES_ROOT:PATH=D:/Desktop/aruco/opencv-4.4.0/3rdparty/cpufeatures
 
 //Specify list of enabled baseline CPU optimizations
-CPU_BASELINE:STRING=DETECT
+CPU_BASELINE:STRING=SSE2
 
 //Specify list of dispatched CPU optimizations
-CPU_DISPATCH:STRING=
+CPU_DISPATCH:STRING=SSE4_1;SSE4_2;AVX;FP16
 
 //Disable explicit optimized code (dispatched code/intrinsics/loop
 // unrolling/etc)
@@ -447,15 +461,6 @@ CV_ENABLE_INTRINSICS:BOOL=ON
 
 //Enable OpenCV code trace
 CV_TRACE:BOOL=ON
-
-//Value Computed by CMake
-Carotene_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/3rdparty/carotene/hal/carotene
-
-//Value Computed by CMake
-Carotene_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-Carotene_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/3rdparty/carotene
 
 //Enable hardening of the resulting binaries (against security
 // attacks, detects memory corruption, etc)
@@ -523,13 +528,13 @@ INSTALL_C_EXAMPLES:BOOL=OFF
 INSTALL_PYTHON_EXAMPLES:BOOL=OFF
 
 //Install accuracy and performance test binaries and test data
-INSTALL_TESTS:BOOL=ON
+INSTALL_TESTS:BOOL=OFF
 
 //Dependencies for the target
-IlmImf_LIB_DEPENDS:STATIC=general;D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so;
+IlmImf_LIB_DEPENDS:STATIC=general;D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a;
 
 //Path to a library.
-M_LIBRARY:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libm.so
+M_LIBRARY:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libm.a
 
 //Where to create the platform-dependant cvconfig.h
 OPENCV_CONFIG_FILE_INCLUDE_DIR:PATH=D:/Desktop/aruco/o4a
@@ -556,7 +561,7 @@ OPENCV_DUMP_HOOKS_FLOW:BOOL=OFF
 OPENCV_ENABLE_ALLOCATOR_STATS:BOOL=ON
 
 //Enable C++ compiler support for atomic<long long>
-OPENCV_ENABLE_ATOMIC_LONG_LONG:BOOL=OFF
+OPENCV_ENABLE_ATOMIC_LONG_LONG:BOOL=ON
 
 //Enable posix_memalign or memalign usage
 OPENCV_ENABLE_MEMALIGN:BOOL=ON
@@ -587,7 +592,7 @@ OPENCV_MATHJAX_RELPATH:STRING=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7
 OPENCV_PYTHON3_VERSION:BOOL=OFF
 
 //Timestamp of OpenCV build configuration
-OPENCV_TIMESTAMP:STRING=2022-06-11T15:49:02Z
+OPENCV_TIMESTAMP:STRING=2022-06-12T06:39:57Z
 
 //Treat warnings as errors
 OPENCV_WARNINGS_ARE_ERRORS:BOOL=OFF
@@ -682,9 +687,6 @@ WITH_ARITH_DEC:BOOL=ON
 // v6b API/ABI
 WITH_ARITH_ENC:BOOL=ON
 
-//Use NVidia carotene acceleration library for ARM platform
-WITH_CAROTENE:BOOL=ON
-
 //Include Clp support (EPL)
 WITH_CLP:BOOL=OFF
 
@@ -727,8 +729,8 @@ WITH_IMGCODEC_SUNRASTER:BOOL=ON
 //Include Intel Inference Engine support
 WITH_INF_ENGINE:BOOL=OFF
 
-//No help, variable specified on the command line.
-WITH_IPP:UNINITIALIZED=OFF
+//Include Intel IPP support
+WITH_IPP:BOOL=ON
 
 //Include Intel ITT support
 WITH_ITT:BOOL=ON
@@ -781,9 +783,6 @@ WITH_QUIRC:BOOL=ON
 //Include Intel TBB support
 WITH_TBB:BOOL=ON
 
-//Include Arm Inference Tengine support
-WITH_TENGINE:BOOL=OFF
-
 //Include TIFF support
 WITH_TIFF:BOOL=ON
 
@@ -794,13 +793,13 @@ WITH_VULKAN:BOOL=OFF
 WITH_WEBP:BOOL=ON
 
 //Path to a file.
-ZLIB_INCLUDE_DIR:PATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include
+ZLIB_INCLUDE_DIR:PATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include
 
 //Path to a library.
 ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-ZLIB_LIBRARY_RELEASE:FILEPATH=D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so
+ZLIB_LIBRARY_RELEASE:FILEPATH=D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a
 
 //support for CCITT Group 3 & 4 algorithms
 ccitt:BOOL=ON
@@ -842,7 +841,7 @@ libpng_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/3rdparty/libpng
 libpng_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-libpng_LIB_DEPENDS:STATIC=general;D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so;
+libpng_LIB_DEPENDS:STATIC=general;D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a;
 
 //Value Computed by CMake
 libpng_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/3rdparty/libpng
@@ -863,7 +862,7 @@ libtiff_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/3rdparty/libtiff
 libtiff_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-libtiff_LIB_DEPENDS:STATIC=general;D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so;
+libtiff_LIB_DEPENDS:STATIC=general;D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a;
 
 //Value Computed by CMake
 libtiff_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/3rdparty/libtiff
@@ -902,7 +901,7 @@ opencv_aruco_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/aruco
 opencv_aruco_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tegra_hal;
+opencv_aruco_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_aruco_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv_contrib-4.4.0/modules/aruco
@@ -914,7 +913,7 @@ opencv_calib3d_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/calib3d
 opencv_calib3d_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_calib3d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;dl;general;m;general;log;general;tegra_hal;
+opencv_calib3d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_calib3d_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/calib3d
@@ -926,7 +925,7 @@ opencv_core_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/core
 opencv_core_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_core_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;tegra_hal;general;tbb;general;D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so;general;libcpufeatures;general;ittnotify;general;tegra_hal;
+opencv_core_LIB_DEPENDS:STATIC=general;dl;general;m;general;log;general;tbb;general;D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a;general;libcpufeatures;general;ittnotify;
 
 //Value Computed by CMake
 opencv_core_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/core
@@ -938,7 +937,7 @@ opencv_dnn_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/dnn
 opencv_dnn_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_dnn_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tegra_hal;general;libprotobuf;
+opencv_dnn_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;libprotobuf;
 
 //Add performance tests of Caffe framework
 opencv_dnn_PERF_CAFFE:BOOL=OFF
@@ -956,7 +955,7 @@ opencv_features2d_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/features2d
 opencv_features2d_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_features2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;dl;general;m;general;log;general;tegra_hal;
+opencv_features2d_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_features2d_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/features2d
@@ -968,7 +967,7 @@ opencv_flann_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/flann
 opencv_flann_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;tegra_hal;
+opencv_flann_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_flann_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/flann
@@ -980,7 +979,7 @@ opencv_gapi_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/gapi
 opencv_gapi_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_gapi_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;opencv_video;general;dl;general;m;general;log;general;tegra_hal;general;ade;general;tbb;
+opencv_gapi_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;opencv_video;general;dl;general;m;general;log;general;ade;general;tbb;
 
 //Value Computed by CMake
 opencv_gapi_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/gapi
@@ -992,7 +991,7 @@ opencv_highgui_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/highgui
 opencv_highgui_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_highgui_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;dl;general;m;general;log;general;tegra_hal;
+opencv_highgui_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;opencv_videoio;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_highgui_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/highgui
@@ -1004,7 +1003,7 @@ opencv_imgcodecs_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/imgcodecs
 opencv_imgcodecs_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tegra_hal;general;D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so;general;libjpeg-turbo;general;libwebp;general;libpng;general;libtiff;general;libjasper;general;IlmImf;
+opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a;general;libjpeg-turbo;general;libwebp;general;libpng;general;libtiff;general;libjasper;general;IlmImf;
 
 //Value Computed by CMake
 opencv_imgcodecs_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs
@@ -1016,7 +1015,7 @@ opencv_imgproc_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/imgproc
 opencv_imgproc_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;tegra_hal;
+opencv_imgproc_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_imgproc_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/imgproc
@@ -1058,7 +1057,7 @@ opencv_ml_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/ml
 opencv_ml_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_ml_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;general;tegra_hal;
+opencv_ml_LIB_DEPENDS:STATIC=general;opencv_core;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_ml_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/ml
@@ -1070,7 +1069,7 @@ opencv_objdetect_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/objdetect
 opencv_objdetect_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tegra_hal;general;quirc;
+opencv_objdetect_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;quirc;
 
 //Value Computed by CMake
 opencv_objdetect_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/objdetect
@@ -1082,7 +1081,7 @@ opencv_photo_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/photo
 opencv_photo_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;general;tegra_hal;
+opencv_photo_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_photo_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/photo
@@ -1094,7 +1093,7 @@ opencv_stitching_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/stitching
 opencv_stitching_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_stitching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tegra_hal;
+opencv_stitching_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_stitching_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/stitching
@@ -1106,7 +1105,7 @@ opencv_video_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/video
 opencv_video_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;general;tegra_hal;
+opencv_video_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_flann;general;opencv_imgproc;general;opencv_features2d;general;opencv_calib3d;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_video_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/video
@@ -1118,7 +1117,7 @@ opencv_videoio_BINARY_DIR:STATIC=D:/Desktop/aruco/o4a/modules/videoio
 opencv_videoio_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-opencv_videoio_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;dl;general;m;general;log;general;tegra_hal;
+opencv_videoio_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;opencv_imgcodecs;general;dl;general;m;general;log;
 
 //Value Computed by CMake
 opencv_videoio_SOURCE_DIR:STATIC=D:/Desktop/aruco/opencv-4.4.0/modules/videoio
@@ -1175,7 +1174,11 @@ ANDROID_SDK_TOOLS:INTERNAL=D:/Android/Sdk/tools
 ANDROID_SDK_TOOLS_PATH:INTERNAL=D:/Android/Sdk/tools
 //Android SDK Tools version
 ANDROID_SDK_TOOLS_VERSION:INTERNAL=26.1.1
-CACHED_CPU_BASELINE_FLAGS:INTERNAL=' -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments '
+CACHED_CPU_BASELINE_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2
+CACHED_CPU_DISPATCH_AVX_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2  -msse3 -mssse3 -msse4.1 -mpopcnt -msse4.2 -mavx
+CACHED_CPU_DISPATCH_FP16_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2  -msse3 -mssse3 -msse4.1 -mpopcnt -msse4.2 -mf16c -mavx
+CACHED_CPU_DISPATCH_SSE4_1_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2  -msse3 -mssse3 -msse4.1
+CACHED_CPU_DISPATCH_SSE4_2_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments  -msse -msse2  -msse3 -mssse3 -msse4.1 -mpopcnt -msse4.2
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -1208,6 +1211,8 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_STANDARD_LIBRARIES
+CMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
 CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
@@ -1222,12 +1227,12 @@ CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_STANDARD_LIBRARIES
+CMAKE_C_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Path to cache edit program executable.
 CMAKE_EDIT_COMMAND:INTERNAL=D:/CMake/bin/cmake-gui.exe
-//Executable file format
-CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
 CMAKE_EXE_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_DEBUG
@@ -1270,7 +1275,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=79
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=77
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1345,13 +1350,29 @@ CPACK_SOURCE_TZ-ADVANCED:INTERNAL=1
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
 CPUFEATURES_INCLUDE_DIRS:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/3rdparty/cpufeatures
 CPUFEATURES_LIBRARIES:INTERNAL=libcpufeatures
+CPU_AVX2_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_CLX_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_CNL_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_COMMON_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_ICL_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_KNL_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_KNM_USAGE_COUNT:INTERNAL=0
+CPU_AVX512_SKX_USAGE_COUNT:INTERNAL=0
+CPU_AVX_512F_USAGE_COUNT:INTERNAL=0
+CPU_AVX_USAGE_COUNT:INTERNAL=4
 //STRINGS property for variable: CPU_BASELINE
-CPU_BASELINE-STRINGS:INTERNAL=;VFPV3;NEON;FP16
+CPU_BASELINE-STRINGS:INTERNAL=;SSE;SSE2;SSE3;SSSE3;SSE4_1;POPCNT;SSE4_2;FP16;FMA3;AVX;AVX2;AVX_512F;AVX512_COMMON;AVX512_KNL;AVX512_KNM;AVX512_SKX;AVX512_CNL;AVX512_CLX;AVX512_ICL
 //STRINGS property for variable: CPU_DISPATCH
-CPU_DISPATCH-STRINGS:INTERNAL=;VFPV3;NEON;FP16
+CPU_DISPATCH-STRINGS:INTERNAL=;SSE;SSE2;SSE3;SSSE3;SSE4_1;POPCNT;SSE4_2;FP16;FMA3;AVX;AVX2;AVX_512F;AVX512_COMMON;AVX512_KNL;AVX512_KNM;AVX512_SKX;AVX512_CNL;AVX512_CLX;AVX512_ICL
+CPU_FMA3_USAGE_COUNT:INTERNAL=0
 CPU_FP16_USAGE_COUNT:INTERNAL=0
-CPU_NEON_USAGE_COUNT:INTERNAL=0
-CPU_VFPV3_USAGE_COUNT:INTERNAL=0
+CPU_POPCNT_USAGE_COUNT:INTERNAL=0
+CPU_SSE2_USAGE_COUNT:INTERNAL=0
+CPU_SSE3_USAGE_COUNT:INTERNAL=0
+CPU_SSE4_1_USAGE_COUNT:INTERNAL=15
+CPU_SSE4_2_USAGE_COUNT:INTERNAL=1
+CPU_SSE_USAGE_COUNT:INTERNAL=0
+CPU_SSSE3_USAGE_COUNT:INTERNAL=0
 //Test C_HAS_inline
 C_HAS_inline:INTERNAL=1
 //Details about finding Python2
@@ -1359,7 +1380,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_Python2:INTERNAL=[C:/Python27/python.exe][cfound co
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[D:/Python/python.exe][v3.6.5(3.2)]
 //Details about finding ZLIB
-FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so][D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include][v1.2.11(1.2.3)]
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a][D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include][v1.2.7(1.2.3)]
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //Have include assert.h
@@ -1368,10 +1389,14 @@ HAVE_ASSERT_H:INTERNAL=1
 HAVE_BUILTIN_CTZL:INTERNAL=1
 //Test HAVE_CPU_BASELINE_FLAGS
 HAVE_CPU_BASELINE_FLAGS:INTERNAL=1
-//Test HAVE_CPU_FP16_SUPPORT
-HAVE_CPU_FP16_SUPPORT:INTERNAL=
-//Test HAVE_CPU_NEON_SUPPORT
-HAVE_CPU_NEON_SUPPORT:INTERNAL=1
+//Test HAVE_CPU_DISPATCH_FLAGS_AVX
+HAVE_CPU_DISPATCH_FLAGS_AVX:INTERNAL=1
+//Test HAVE_CPU_DISPATCH_FLAGS_FP16
+HAVE_CPU_DISPATCH_FLAGS_FP16:INTERNAL=1
+//Test HAVE_CPU_DISPATCH_FLAGS_SSE4_1
+HAVE_CPU_DISPATCH_FLAGS_SSE4_1:INTERNAL=1
+//Test HAVE_CPU_DISPATCH_FLAGS_SSE4_2
+HAVE_CPU_DISPATCH_FLAGS_SSE4_2:INTERNAL=1
 //Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION
 HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION:INTERNAL=1
 //Test HAVE_CXX_FSIGNED_CHAR
@@ -1380,10 +1405,26 @@ HAVE_CXX_FSIGNED_CHAR:INTERNAL=1
 HAVE_CXX_FVISIBILITY_HIDDEN:INTERNAL=1
 //Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN
 HAVE_CXX_FVISIBILITY_INLINES_HIDDEN:INTERNAL=1
-//Test HAVE_CXX_MFPU_NEON_FP16_MFP16_FORMAT_IEEE
-HAVE_CXX_MFPU_NEON_FP16_MFP16_FORMAT_IEEE:INTERNAL=
-//Test HAVE_CXX_MFPU_VFPV3
-HAVE_CXX_MFPU_VFPV3:INTERNAL=1
+//Test HAVE_CXX_MAVX
+HAVE_CXX_MAVX:INTERNAL=1
+//Test HAVE_CXX_MF16C
+HAVE_CXX_MF16C:INTERNAL=1
+//Test HAVE_CXX_MFPMATH_SSE
+HAVE_CXX_MFPMATH_SSE:INTERNAL=1
+//Test HAVE_CXX_MPOPCNT
+HAVE_CXX_MPOPCNT:INTERNAL=1
+//Test HAVE_CXX_MSSE
+HAVE_CXX_MSSE:INTERNAL=1
+//Test HAVE_CXX_MSSE2
+HAVE_CXX_MSSE2:INTERNAL=1
+//Test HAVE_CXX_MSSE3
+HAVE_CXX_MSSE3:INTERNAL=1
+//Test HAVE_CXX_MSSE4_1
+HAVE_CXX_MSSE4_1:INTERNAL=1
+//Test HAVE_CXX_MSSE4_2
+HAVE_CXX_MSSE4_2:INTERNAL=1
+//Test HAVE_CXX_MSSSE3
+HAVE_CXX_MSSSE3:INTERNAL=1
 //Test HAVE_CXX_QUNUSED_ARGUMENTS
 HAVE_CXX_QUNUSED_ARGUMENTS:INTERNAL=1
 //Test HAVE_CXX_W
@@ -1420,12 +1461,8 @@ HAVE_CXX_WNO_COMMENT:INTERNAL=1
 HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR:INTERNAL=1
 //Test HAVE_CXX_WNO_DEPRECATED
 HAVE_CXX_WNO_DEPRECATED:INTERNAL=1
-//Test HAVE_CXX_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION
-HAVE_CXX_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION:INTERNAL=1
 //Test HAVE_CXX_WNO_DEPRECATED_DECLARATIONS
 HAVE_CXX_WNO_DEPRECATED_DECLARATIONS:INTERNAL=1
-//Test HAVE_CXX_WNO_DEPRECATED_ENUM_ENUM_CONVERSION
-HAVE_CXX_WNO_DEPRECATED_ENUM_ENUM_CONVERSION:INTERNAL=1
 //Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH
 HAVE_CXX_WNO_ENUM_COMPARE_SWITCH:INTERNAL=1
 //Test HAVE_CXX_WNO_EXTRA
@@ -1439,7 +1476,7 @@ HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE:INTERNAL=1
 //Test HAVE_CXX_WNO_INVALID_OFFSETOF
 HAVE_CXX_WNO_INVALID_OFFSETOF:INTERNAL=1
 //Test HAVE_CXX_WNO_MISLEADING_INDENTATION
-HAVE_CXX_WNO_MISLEADING_INDENTATION:INTERNAL=1
+HAVE_CXX_WNO_MISLEADING_INDENTATION:INTERNAL=
 //Test HAVE_CXX_WNO_MISSING_DECLARATIONS
 HAVE_CXX_WNO_MISSING_DECLARATIONS:INTERNAL=1
 //Test HAVE_CXX_WNO_MISSING_PROTOTYPES
@@ -1457,7 +1494,7 @@ HAVE_CXX_WNO_SIGN_COMPARE:INTERNAL=1
 //Test HAVE_CXX_WNO_SIGN_PROMO
 HAVE_CXX_WNO_SIGN_PROMO:INTERNAL=1
 //Test HAVE_CXX_WNO_SUGGEST_OVERRIDE
-HAVE_CXX_WNO_SUGGEST_OVERRIDE:INTERNAL=1
+HAVE_CXX_WNO_SUGGEST_OVERRIDE:INTERNAL=
 //Test HAVE_CXX_WNO_SWITCH
 HAVE_CXX_WNO_SWITCH:INTERNAL=1
 //Test HAVE_CXX_WNO_TAUTOLOGICAL_COMPARE
@@ -1502,6 +1539,8 @@ HAVE_C_FSIGNED_CHAR:INTERNAL=1
 HAVE_C_FVISIBILITY_HIDDEN:INTERNAL=1
 //Test HAVE_C_FVISIBILITY_INLINES_HIDDEN
 HAVE_C_FVISIBILITY_INLINES_HIDDEN:INTERNAL=1
+//Test HAVE_C_MFPMATH_SSE
+HAVE_C_MFPMATH_SSE:INTERNAL=1
 //Test HAVE_C_QUNUSED_ARGUMENTS
 HAVE_C_QUNUSED_ARGUMENTS:INTERNAL=1
 //Test HAVE_C_STD_C99
@@ -1538,10 +1577,6 @@ HAVE_C_WNO_CAST_ALIGN:INTERNAL=1
 HAVE_C_WNO_COMMENT:INTERNAL=1
 //Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR
 HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR:INTERNAL=1
-//Test HAVE_C_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION
-HAVE_C_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION:INTERNAL=1
-//Test HAVE_C_WNO_DEPRECATED_ENUM_ENUM_CONVERSION
-HAVE_C_WNO_DEPRECATED_ENUM_ENUM_CONVERSION:INTERNAL=1
 //Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH
 HAVE_C_WNO_IMPLICIT_FALLTHROUGH:INTERNAL=1
 //Test HAVE_C_WNO_IMPLICIT_FUNCTION_DECLARATION
@@ -1551,13 +1586,13 @@ HAVE_C_WNO_INT_TO_POINTER_CAST:INTERNAL=1
 //Test HAVE_C_WNO_MAYBE_UNINITIALIZED
 HAVE_C_WNO_MAYBE_UNINITIALIZED:INTERNAL=
 //Test HAVE_C_WNO_MISLEADING_INDENTATION
-HAVE_C_WNO_MISLEADING_INDENTATION:INTERNAL=1
+HAVE_C_WNO_MISLEADING_INDENTATION:INTERNAL=
 //Test HAVE_C_WNO_MISSING_DECLARATIONS
 HAVE_C_WNO_MISSING_DECLARATIONS:INTERNAL=1
 //Test HAVE_C_WNO_MISSING_PROTOTYPES
 HAVE_C_WNO_MISSING_PROTOTYPES:INTERNAL=1
 //Test HAVE_C_WNO_POINTER_COMPARE
-HAVE_C_WNO_POINTER_COMPARE:INTERNAL=1
+HAVE_C_WNO_POINTER_COMPARE:INTERNAL=
 //Test HAVE_C_WNO_POINTER_TO_INT_CAST
 HAVE_C_WNO_POINTER_TO_INT_CAST:INTERNAL=1
 //Test HAVE_C_WNO_SHADOW
@@ -1579,9 +1614,9 @@ HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS:INTERNAL=1
 //Test HAVE_C_WNO_UNUSED
 HAVE_C_WNO_UNUSED:INTERNAL=1
 //Test HAVE_C_WNO_UNUSED_BUT_SET_PARAMETER
-HAVE_C_WNO_UNUSED_BUT_SET_PARAMETER:INTERNAL=1
+HAVE_C_WNO_UNUSED_BUT_SET_PARAMETER:INTERNAL=
 //Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE
-HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE:INTERNAL=1
+HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE:INTERNAL=
 //Test HAVE_C_WNO_UNUSED_FUNCTION
 HAVE_C_WNO_UNUSED_FUNCTION:INTERNAL=1
 //Test HAVE_C_WNO_UNUSED_PARAMETER
@@ -1639,7 +1674,7 @@ HAVE_MEMSET:INTERNAL=1
 //Have function mmap
 HAVE_MMAP:INTERNAL=1
 //Have symbol posix_memalign
-HAVE_POSIX_MEMALIGN:INTERNAL=1
+HAVE_POSIX_MEMALIGN:INTERNAL=
 //Have include semaphore.h
 HAVE_POSIX_SEMAPHORES:INTERNAL=1
 //Have function pow
@@ -1877,7 +1912,7 @@ OPENCV_MODULE_opencv_core_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_core module
 OPENCV_MODULE_opencv_core_REQ_DEPS:INTERNAL=
 //List of source files for opencv_core
-OPENCV_MODULE_opencv_core_SOURCES:INTERNAL=D:/Desktop/aruco/o4a/modules/core/version_string.inc;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/algorithm.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/alloc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/array.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/async.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/batch_distance.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/bindings_utils.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/buffer_area.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/channels.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/check.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/command_line_parser.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/conjugate_gradient.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert_c.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert_scale.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/copy.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/count_non_zero.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_gpu_mat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_host_mem.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_info.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_stream.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/datastructs.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/directx.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/downhill_simplex.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/dxt.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/gl_core_3_1.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/glob.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/hal_internal.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/kmeans.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lapack.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lda.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/logger.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lpsolver.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lut.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs_core.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matmul.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_c.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_decomp.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_expressions.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_iterator.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_operations.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_sparse.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_wrap.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mean.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/merge.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/minmax.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/norm.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/ocl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/opencl_clamdblas.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/opencl_clamdfft.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/opencl_core.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opengl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/out.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/ovx.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/parallel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/parallel_impl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/pca.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_json.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_types.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_xml.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_yml.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/rand.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/softfloat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/split.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat_c.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/sum.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/system.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/tables.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/trace.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/types.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/umatrix.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/datafile.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/filesystem.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagconfigparser.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagmanager.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/samples.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/va_intel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/arithm.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/convert.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/copymakeborder.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/copyset.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/cvtclr_dx.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/fft.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/flip.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/gemm.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/halfconvert.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/inrange.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/intel_gemm.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/lut.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/meanstddev.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/minmaxloc.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/mixchannels.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/mulspectrums.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/normalize.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/reduce.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/reduce2.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/repeat.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/set_identity.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/split_merge.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/transpose.cl;D:/Desktop/aruco/o4a/modules/core/opencl_kernels_core.cpp;D:/Desktop/aruco/o4a/modules/core/opencl_kernels_core.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm_ipp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/bufferpool.impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert_scale.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/count_non_zero.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/directx.inc.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/gl_core_3_1.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/hal_internal.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/hal_replacement.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/intel_gpu_gemm.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs_core.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matmul.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mean.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/merge.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/ocl_deprecated.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_clamdblas_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_clamdfft_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_core_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_core_static_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_gl_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_gl_static_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/runtime_common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/parallel_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/split.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/sum.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/umatrix.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagconfig.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagconfigparser.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagmanager.hpp
+OPENCV_MODULE_opencv_core_SOURCES:INTERNAL=D:/Desktop/aruco/o4a/modules/core/version_string.inc;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/algorithm.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/alloc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/array.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/async.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/batch_distance.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/bindings_utils.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/buffer_area.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/channels.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/check.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/command_line_parser.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/conjugate_gradient.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert_c.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert_scale.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/copy.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/count_non_zero.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_gpu_mat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_host_mem.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_info.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/cuda_stream.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/datastructs.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/directx.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/downhill_simplex.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/dxt.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/gl_core_3_1.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/glob.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/hal_internal.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/kmeans.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lapack.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lda.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/logger.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lpsolver.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/lut.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs_core.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matmul.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_c.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_decomp.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_expressions.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_iterator.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_operations.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_sparse.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matrix_wrap.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mean.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/merge.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/minmax.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/norm.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/ocl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/opencl_clamdblas.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/opencl_clamdfft.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/opencl_core.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opengl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/out.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/ovx.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/parallel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/parallel_impl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/pca.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_json.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_types.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_xml.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence_yml.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/rand.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/softfloat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/split.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat_c.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stl.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/sum.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/system.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/tables.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/trace.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/types.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/umatrix.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/datafile.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/filesystem.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagconfigparser.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagmanager.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/samples.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/va_intel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/arithm.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/convert.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/copymakeborder.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/copyset.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/cvtclr_dx.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/fft.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/flip.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/gemm.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/halfconvert.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/inrange.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/intel_gemm.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/lut.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/meanstddev.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/minmaxloc.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/mixchannels.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/mulspectrums.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/normalize.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/reduce.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/reduce2.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/repeat.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/set_identity.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/split_merge.cl;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/transpose.cl;D:/Desktop/aruco/o4a/modules/core/opencl_kernels_core.cpp;D:/Desktop/aruco/o4a/modules/core/opencl_kernels_core.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/arithm_ipp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/bufferpool.impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/convert_scale.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/count_non_zero.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/directx.inc.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/gl_core_3_1.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/hal_internal.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/hal_replacement.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/intel_gpu_gemm.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mathfuncs_core.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/matmul.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/mean.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/merge.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/ocl_deprecated.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_clamdblas_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_clamdfft_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_core_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_core_static_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_gl_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/autogenerated/opencl_gl_static_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/opencl/runtime/runtime_common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/parallel_impl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/persistence.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/split.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/stat.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/sum.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/umatrix.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagconfig.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagconfigparser.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/core/src/utils/logtagmanager.hpp;D:/Desktop/aruco/o4a/modules/core/arithm.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/core/matmul.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/core/stat.sse4_2.cpp;D:/Desktop/aruco/o4a/modules/core/mathfuncs_core.avx.cpp
 //List of wrappers supporting module opencv_core
 OPENCV_MODULE_opencv_core_WRAPPERS:INTERNAL=java;objc;js;python_bindings_generator;python2;python3
 OPENCV_MODULE_opencv_dnn_BINARY_DIR:INTERNAL=D:/Desktop/aruco/o4a/modules/dnn
@@ -1907,7 +1942,7 @@ OPENCV_MODULE_opencv_dnn_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_dnn module
 OPENCV_MODULE_opencv_dnn_REQ_DEPS:INTERNAL=opencv_core;opencv_imgproc
 //List of source files for opencv_dnn
-OPENCV_MODULE_opencv_dnn_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/caffe/opencv-caffe.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/onnx/opencv-onnx.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/attr_value.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/function.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/graph.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/op_def.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/tensor.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/tensor_shape.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/types.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/versions.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_io.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_shrinker.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/darknet/darknet_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/darknet/darknet_io.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/dnn.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/graph_simplifier.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/halide_scheduler.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/ie_ngraph.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/init.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/accum_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/batch_norm_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/blank_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/concat_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/const_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/convolution_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/correlation_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/crop_and_resize_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/detection_output_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/elementwise_layers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/eltwise_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/flatten_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/flow_warp_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/fully_connected_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/layers_common.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/lrn_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/max_unpooling_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/mvn_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/normalize_bbox_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/padding_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/permute_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/pooling_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/prior_box_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/proposal_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/recurrent_layers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/region_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/reorg_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/reshape_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/resize_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/scale_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/shuffle_channel_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/slice_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/softmax_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/split_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/model.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/nms.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/onnx/onnx_graph_simplifier.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/onnx/onnx_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_halide.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_inf_engine.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_vkcom.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tengine4dnn/src/tengine_graph_convolution.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_graph_simplifier.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_io.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THDiskFile.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THFile.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THGeneral.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/torch_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/avg_pool_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/concat_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/conv48_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/conv_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/dw_conv_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/lrn_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/max_pool_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/permute_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/prior_box_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/relu_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/softmax_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/buffer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/context.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/internal.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_base.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_concat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_conv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_lrn.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_permute.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_pool.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_prior_box.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_relu.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_softmax.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/tensor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_functions.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_loader.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_io.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/glog_emulator.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/array.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/atomics.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/execution.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/functors.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/grid_stride_range.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/kernel_dispatcher.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/limits.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/math.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/memory.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/types.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/vector_traits.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/darknet/darknet_io.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/dnn_common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/graph_simplifier.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/halide_scheduler.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/ie_ngraph.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/layers_common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/layers_common.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/nms.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/onnx/onnx_graph_simplifier.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_cuda.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_halide.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_inf_engine.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_vkcom.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tengine4dnn/include/tengine_graph_convolution.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_graph_simplifier.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_io.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THDiskFile.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THFile.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THFilePrivate.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THGeneral.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/buffer.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_base.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_concat.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_conv.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_lrn.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_permute.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_pool.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_prior_box.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_relu.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_softmax.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/tensor.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/vkcom.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/spv_shader.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/context.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/internal.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/function_list.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_functions.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_loader.hpp
+OPENCV_MODULE_opencv_dnn_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/caffe/opencv-caffe.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/onnx/opencv-onnx.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/attr_value.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/function.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/graph.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/op_def.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/tensor.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/tensor_shape.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/types.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/misc/tensorflow/versions.pb.cc;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_io.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_shrinker.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/darknet/darknet_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/darknet/darknet_io.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/dnn.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/graph_simplifier.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/halide_scheduler.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/ie_ngraph.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/init.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/accum_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/batch_norm_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/blank_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/concat_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/const_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/convolution_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/correlation_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/crop_and_resize_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/detection_output_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/elementwise_layers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/eltwise_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/flatten_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/flow_warp_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/fully_connected_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/layers_common.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/lrn_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/max_unpooling_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/mvn_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/normalize_bbox_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/padding_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/permute_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/pooling_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/prior_box_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/proposal_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/recurrent_layers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/region_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/reorg_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/reshape_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/resize_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/scale_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/shuffle_channel_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/slice_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/softmax_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/split_layer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/model.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/nms.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/onnx/onnx_graph_simplifier.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/onnx/onnx_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_halide.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_inf_engine.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_vkcom.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tengine4dnn/src/tengine_graph_convolution.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_graph_simplifier.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_io.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THDiskFile.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THFile.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THGeneral.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/torch_importer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/avg_pool_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/concat_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/conv48_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/conv_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/dw_conv_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/lrn_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/max_pool_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/permute_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/prior_box_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/relu_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/softmax_spv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/buffer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/context.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/internal.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_base.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_concat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_conv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_lrn.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_permute.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_pool.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_prior_box.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_relu.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/op_softmax.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/tensor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_functions.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_loader.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/caffe_io.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/caffe/glog_emulator.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/array.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/atomics.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/execution.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/functors.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/grid_stride_range.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/kernel_dispatcher.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/limits.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/math.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/memory.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/types.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/cuda/vector_traits.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/darknet/darknet_io.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/dnn_common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/graph_simplifier.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/halide_scheduler.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/ie_ngraph.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/layers_common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/layers/layers_common.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/nms.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/onnx/onnx_graph_simplifier.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_cuda.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_halide.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_inf_engine.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/op_vkcom.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tengine4dnn/include/tengine_graph_convolution.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_graph_simplifier.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/tensorflow/tf_io.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THDiskFile.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THFile.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THFilePrivate.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/torch/THGeneral.h;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/buffer.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_base.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_concat.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_conv.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_lrn.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_permute.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_pool.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_prior_box.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_relu.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/op_softmax.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/tensor.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/include/vkcom.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/shader/spv_shader.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/common.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/context.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/src/internal.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/function_list.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_functions.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_loader.hpp;D:/Desktop/aruco/o4a/modules/dnn/layers/layers_common.avx.cpp
 //List of wrappers supporting module opencv_dnn
 OPENCV_MODULE_opencv_dnn_WRAPPERS:INTERNAL=java;objc;js;python_bindings_generator;python2;python3
 OPENCV_MODULE_opencv_features2d_BINARY_DIR:INTERNAL=D:/Desktop/aruco/o4a/modules/features2d
@@ -1937,7 +1972,7 @@ OPENCV_MODULE_opencv_features2d_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_features2d module
 OPENCV_MODULE_opencv_features2d_REQ_DEPS:INTERNAL=opencv_imgproc
 //List of source files for opencv_features2d
-OPENCV_MODULE_opencv_features2d_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/agast.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/agast_score.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/akaze.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/bagofwords.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/blobdetector.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/brisk.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/draw.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/dynamic.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/evaluation.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast_score.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/feature2d.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/gftt.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/AKAZEFeatures.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/KAZEFeatures.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/fed.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/nldiffusion_functions.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/keypoint.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/main.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/matchers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/mser.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/orb.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/sift.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/akaze.cl;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/brute_force_match.cl;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/fast.cl;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/orb.cl;D:/Desktop/aruco/o4a/modules/features2d/opencl_kernels_features2d.cpp;D:/Desktop/aruco/o4a/modules/features2d/opencl_kernels_features2d.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/agast_score.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast_score.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/hal_replacement.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/AKAZEConfig.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/AKAZEFeatures.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/KAZEConfig.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/KAZEFeatures.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/TEvolution.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/fed.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/nldiffusion_functions.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/utils.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/sift.simd.hpp
+OPENCV_MODULE_opencv_features2d_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/agast.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/agast_score.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/akaze.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/bagofwords.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/blobdetector.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/brisk.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/draw.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/dynamic.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/evaluation.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast_score.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/feature2d.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/gftt.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/AKAZEFeatures.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/KAZEFeatures.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/fed.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/nldiffusion_functions.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/keypoint.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/main.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/matchers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/mser.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/orb.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/sift.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/akaze.cl;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/brute_force_match.cl;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/fast.cl;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/opencl/orb.cl;D:/Desktop/aruco/o4a/modules/features2d/opencl_kernels_features2d.cpp;D:/Desktop/aruco/o4a/modules/features2d/opencl_kernels_features2d.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/agast_score.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/fast_score.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/hal_replacement.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/AKAZEConfig.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/AKAZEFeatures.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/KAZEConfig.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/KAZEFeatures.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/TEvolution.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/fed.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/nldiffusion_functions.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/kaze/utils.h;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/sift.simd.hpp;D:/Desktop/aruco/o4a/modules/features2d/sift.sse4_1.cpp
 //List of wrappers supporting module opencv_features2d
 OPENCV_MODULE_opencv_features2d_WRAPPERS:INTERNAL=java;objc;js;python_bindings_generator;python2;python3
 OPENCV_MODULE_opencv_flann_BINARY_DIR:INTERNAL=D:/Desktop/aruco/o4a/modules/flann
@@ -1997,7 +2032,7 @@ OPENCV_MODULE_opencv_gapi_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_gapi module
 OPENCV_MODULE_opencv_gapi_REQ_DEPS:INTERNAL=opencv_imgproc
 //List of source files for opencv_gapi
-OPENCV_MODULE_opencv_gapi_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gorigin.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gmat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/garray.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gopaque.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gscalar.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gkernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gproto.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gnode.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gcall.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gcomputation.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/operators.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/kernels_core.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/kernels_imgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/kernels_video.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/render.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/render_ocv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/ginfer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/ft_render.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gmodel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gmodelbuilder.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gislandmodel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gcompiler.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gcompiled.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gstreaming.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/helpers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/dump_dot.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/islands.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/meta.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/kernels.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/exec.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/transformations.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/pattern_matching.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/perform_substitution.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/streaming.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/executor/gexecutor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/executor/gstreamingexecutor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/executor/gasync.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpubackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpukernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpuimgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpuvideo.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpucore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidbuffer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidimgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidimgproc_func.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidcore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclkernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclimgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclcore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ie/giebackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ie/giebackend/giewrapper.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/render/grenderocvbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/render/grenderocv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/plaidml/gplaidmlcore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/plaidml/gplaidmlbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/gcompoundbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/gcompoundkernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/s11n.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/serialization.cpp
+OPENCV_MODULE_opencv_gapi_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gorigin.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gmat.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/garray.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gopaque.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gscalar.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gkernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gproto.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gnode.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gcall.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/gcomputation.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/operators.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/kernels_core.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/kernels_imgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/kernels_video.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/render.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/render_ocv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/ginfer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/ft_render.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gmodel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gmodelbuilder.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gislandmodel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gcompiler.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gcompiled.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/gstreaming.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/helpers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/dump_dot.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/islands.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/meta.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/kernels.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/exec.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/transformations.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/pattern_matching.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/perform_substitution.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/compiler/passes/streaming.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/executor/gexecutor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/executor/gstreamingexecutor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/executor/gasync.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpubackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpukernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpuimgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpuvideo.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/cpu/gcpucore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidbuffer.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidimgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidimgproc_func.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/fluid/gfluidcore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclkernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclimgproc.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ocl/goclcore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ie/giebackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/ie/giebackend/giewrapper.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/render/grenderocvbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/render/grenderocv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/plaidml/gplaidmlcore.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/plaidml/gplaidmlbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/gcompoundbackend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/gcompoundkernel.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/api/s11n.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/serialization.cpp;D:/Desktop/aruco/o4a/modules/gapi/backends/fluid/gfluidimgproc_func.sse4_1.cpp
 //List of wrappers supporting module opencv_gapi
 OPENCV_MODULE_opencv_gapi_WRAPPERS:INTERNAL=
 OPENCV_MODULE_opencv_highgui_BINARY_DIR:INTERNAL=D:/Desktop/aruco/o4a/modules/highgui
@@ -2045,7 +2080,7 @@ OPENCV_MODULE_opencv_imgcodecs_DESCRIPTION:INTERNAL=Image I/O
 OPENCV_MODULE_opencv_imgcodecs_HEADERS:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs/include/opencv2/imgcodecs.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs_c.h;D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs/include/opencv2/imgcodecs/ios.h;D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs/include/opencv2/imgcodecs/legacy/constants_c.h
 OPENCV_MODULE_opencv_imgcodecs_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_imgcodecs_LABEL:INTERNAL=Main;opencv_imgcodecs
-OPENCV_MODULE_opencv_imgcodecs_LINK_DEPS:INTERNAL=;D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libz.so;libjpeg-turbo;libwebp;libpng;libtiff;libjasper;IlmImf
+OPENCV_MODULE_opencv_imgcodecs_LINK_DEPS:INTERNAL=;D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libz.a;libjpeg-turbo;libwebp;libpng;libtiff;libjasper;IlmImf
 //Location of opencv_imgcodecs module sources
 OPENCV_MODULE_opencv_imgcodecs_LOCATION:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/imgcodecs
 //Optional dependencies of opencv_imgcodecs module
@@ -2087,7 +2122,7 @@ OPENCV_MODULE_opencv_imgproc_PRIVATE_REQ_DEPS:INTERNAL=
 //Required dependencies of opencv_imgproc module
 OPENCV_MODULE_opencv_imgproc_REQ_DEPS:INTERNAL=opencv_core
 //List of source files for opencv_imgproc
-OPENCV_MODULE_opencv_imgproc_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/accum.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/accum.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/approx.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/bilateral_filter.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/blend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/box_filter.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/canny.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/clahe.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_hsv.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_lab.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_rgb.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_yuv.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/colormap.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/connectedcomponents.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/contours.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/convhull.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/corner.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/cornersubpix.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/demosaicing.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/deriv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/distransform.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/drawing.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/emd.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/featureselect.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filter.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/floodfill.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/gabor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/generalized_hough.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/geometry.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/grabcut.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/hershey_fonts.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/histogram.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/hough.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/imgwarp.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/intersection.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/linefit.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/lsd.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/main.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/matchcontours.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/median_blur.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/min_enclosing_triangle.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/moments.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/morph.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/phasecorr.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/pyramids.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/resize.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/rotcalipers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/samplers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/segmentation.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/shapedescr.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/smooth.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/spatialgradient.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/subdivision2d.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/tables.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/templmatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/thresh.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/utils.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/accumulate.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/bilateral.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/blend_linear.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/boxFilter.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/boxFilter3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/calc_back_project.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/canny.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/clahe.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_hsv.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_lab.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_rgb.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_yuv.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/corner.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/covardata.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filter2D.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filter2DSmall.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSepCol.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSepRow.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSep_singlePass.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSmall.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/gaussianBlur3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/gaussianBlur5x5.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/gftt.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/histogram.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/hough_lines.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/integral_sum.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/laplacian3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/laplacian5.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/linearPolar.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/logPolar.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/match_template.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/medianFilter.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/moments.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/morph.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/morph3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/precornerdetect.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/pyr_down.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/pyr_up.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/pyramid_up.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/remap.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/resize.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/sepFilter3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/threshold.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/warp_affine.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/warp_perspective.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/warp_transform.cl;D:/Desktop/aruco/o4a/modules/imgproc/opencl_kernels_imgproc.cpp;D:/Desktop/aruco/o4a/modules/imgproc/opencl_kernels_imgproc.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/_geom.h;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/accum.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/bilateral_filter.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/box_filter.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color.simd_helpers.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_hsv.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_rgb.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_yuv.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/corner.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filter.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filter.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filterengine.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/fixedpoint.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/hal_replacement.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/imgwarp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/median_blur.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/morph.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/resize.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/smooth.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.avx512_skx.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.simd.hpp
+OPENCV_MODULE_opencv_imgproc_SOURCES:INTERNAL=D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/accum.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/accum.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/approx.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/bilateral_filter.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/blend.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/box_filter.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/canny.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/clahe.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_hsv.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_lab.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_rgb.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_yuv.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/colormap.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/connectedcomponents.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/contours.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/convhull.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/corner.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/cornersubpix.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/demosaicing.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/deriv.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/distransform.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/drawing.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/emd.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/featureselect.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filter.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/floodfill.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/gabor.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/generalized_hough.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/geometry.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/grabcut.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/hershey_fonts.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/histogram.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/hough.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/imgwarp.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/intersection.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/linefit.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/lsd.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/main.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/matchcontours.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/median_blur.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/min_enclosing_triangle.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/moments.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/morph.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/phasecorr.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/pyramids.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/resize.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/rotcalipers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/samplers.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/segmentation.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/shapedescr.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/smooth.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/spatialgradient.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/subdivision2d.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.dispatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/tables.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/templmatch.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/thresh.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/utils.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/accumulate.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/bilateral.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/blend_linear.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/boxFilter.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/boxFilter3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/calc_back_project.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/canny.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/clahe.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_hsv.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_lab.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_rgb.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/color_yuv.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/corner.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/covardata.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filter2D.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filter2DSmall.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSepCol.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSepRow.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSep_singlePass.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/filterSmall.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/gaussianBlur3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/gaussianBlur5x5.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/gftt.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/histogram.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/hough_lines.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/integral_sum.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/laplacian3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/laplacian5.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/linearPolar.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/logPolar.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/match_template.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/medianFilter.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/moments.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/morph.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/morph3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/precornerdetect.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/pyr_down.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/pyr_up.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/pyramid_up.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/remap.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/resize.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/sepFilter3x3.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/threshold.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/warp_affine.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/warp_perspective.cl;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/opencl/warp_transform.cl;D:/Desktop/aruco/o4a/modules/imgproc/opencl_kernels_imgproc.cpp;D:/Desktop/aruco/o4a/modules/imgproc/opencl_kernels_imgproc.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/_geom.h;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/accum.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/bilateral_filter.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/box_filter.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color.simd_helpers.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_hsv.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_rgb.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/color_yuv.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/corner.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filter.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filter.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/filterengine.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/fixedpoint.inl.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/hal_replacement.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/imgwarp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/median_blur.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/morph.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/precomp.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/resize.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/smooth.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.avx512_skx.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.simd.hpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/imgwarp.sse4_1.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/resize.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/accum.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/box_filter.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/filter.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/color_hsv.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/color_rgb.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/color_yuv.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/median_blur.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/morph.sse4_1.cpp;D:/Desktop/aruco/o4a/modules/imgproc/smooth.sse4_1.cpp;D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/corner.avx.cpp;D:/Desktop/aruco/o4a/modules/imgproc/accum.avx.cpp
 //List of wrappers supporting module opencv_imgproc
 OPENCV_MODULE_opencv_imgproc_WRAPPERS:INTERNAL=java;objc;js;python_bindings_generator;python2;python3
 OPENCV_MODULE_opencv_java_BINARY_DIR:INTERNAL=D:/Desktop/aruco/o4a/modules/java
@@ -2407,7 +2442,7 @@ OPENCV_MODULE_opencv_world_WRAPPERS:INTERNAL=
 //List of OpenCV modules included into the world
 OPENCV_WORLD_MODULES:INTERNAL=
 //List of OpenCVModules targets
-OpenCVModules_TARGETS:INTERNAL=libcpufeatures;libjpeg-turbo;libtiff;libwebp;libjasper;libpng;IlmImf;tbb;libprotobuf;quirc;tegra_hal;ittnotify;ade;opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_photo;opencv_dnn;opencv_features2d;opencv_imgcodecs;opencv_videoio;opencv_calib3d;opencv_highgui;opencv_objdetect;opencv_stitching;opencv_video;opencv_aruco;opencv_gapi;opencv_java
+OpenCVModules_TARGETS:INTERNAL=libcpufeatures;libjpeg-turbo;libtiff;libwebp;libjasper;libpng;IlmImf;tbb;libprotobuf;quirc;ittnotify;ade;opencv_core;opencv_flann;opencv_imgproc;opencv_ml;opencv_photo;opencv_dnn;opencv_features2d;opencv_imgcodecs;opencv_videoio;opencv_calib3d;opencv_highgui;opencv_objdetect;opencv_stitching;opencv_video;opencv_aruco;opencv_gapi;opencv_java
 PYTHON2INTERP_FOUND:INTERNAL=TRUE
 PYTHON2LIBS_FOUND:INTERNAL=
 PYTHON2LIBS_VERSION_STRING:INTERNAL=

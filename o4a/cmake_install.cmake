@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -39,7 +39,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/Android/Sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-objdump.exe")
+  set(CMAKE_OBJDUMP "D:/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-objdump.exe")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xsamplesx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -83,32 +83,32 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xdevx" OR NOT CMAKE_INSTALL_COMPONEN
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xdevx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni" TYPE FILE FILES "D:/Desktop/aruco/o4a/unix-install/OpenCV-armeabi-v7a.mk")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni" TYPE FILE FILES "D:/Desktop/aruco/o4a/unix-install/OpenCV-x86.mk")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xdevx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a/OpenCVModules.cmake")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86/OpenCVModules.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
-         "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a/OpenCVModules.cmake"
-         "D:/Desktop/aruco/o4a/CMakeFiles/Export/sdk/native/jni/abi-armeabi-v7a/OpenCVModules.cmake")
+         "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86/OpenCVModules.cmake"
+         "D:/Desktop/aruco/o4a/CMakeFiles/Export/sdk/native/jni/abi-x86/OpenCVModules.cmake")
     if(EXPORT_FILE_CHANGED)
-      file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a/OpenCVModules-*.cmake")
+      file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86/OpenCVModules-*.cmake")
       if(OLD_CONFIG_FILES)
-        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a/OpenCVModules.cmake\" will be replaced.  Removing files [${OLD_CONFIG_FILES}].")
+        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86/OpenCVModules.cmake\" will be replaced.  Removing files [${OLD_CONFIG_FILES}].")
         file(REMOVE ${OLD_CONFIG_FILES})
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a" TYPE FILE FILES "D:/Desktop/aruco/o4a/CMakeFiles/Export/sdk/native/jni/abi-armeabi-v7a/OpenCVModules.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a" TYPE FILE FILES "D:/Desktop/aruco/o4a/CMakeFiles/Export/sdk/native/jni/abi-armeabi-v7a/OpenCVModules-relwithdebinfo.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86" TYPE FILE FILES "D:/Desktop/aruco/o4a/CMakeFiles/Export/sdk/native/jni/abi-x86/OpenCVModules.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86" TYPE FILE FILES "D:/Desktop/aruco/o4a/CMakeFiles/Export/sdk/native/jni/abi-x86/OpenCVModules-release.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xdevx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-armeabi-v7a" TYPE FILE FILES
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/sdk/native/jni/abi-x86" TYPE FILE FILES
     "D:/Desktop/aruco/o4a/unix-install/OpenCVConfig-version.cmake"
-    "D:/Desktop/aruco/o4a/unix-install/abi-armeabi-v7a/OpenCVConfig.cmake"
+    "D:/Desktop/aruco/o4a/unix-install/abi-x86/OpenCVConfig.cmake"
     )
 endif()
 
@@ -150,7 +150,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("D:/Desktop/aruco/o4a/3rdparty/tbb/cmake_install.cmake")
   include("D:/Desktop/aruco/o4a/3rdparty/protobuf/cmake_install.cmake")
   include("D:/Desktop/aruco/o4a/3rdparty/quirc/cmake_install.cmake")
-  include("D:/Desktop/aruco/o4a/3rdparty/carotene/hal/cmake_install.cmake")
   include("D:/Desktop/aruco/o4a/3rdparty/ittnotify/cmake_install.cmake")
   include("D:/Desktop/aruco/o4a/include/cmake_install.cmake")
   include("D:/Desktop/aruco/o4a/modules/cmake_install.cmake")

@@ -511,5 +511,9 @@ D:/Desktop/aruco/opencv-4.4.0/modules/gapi/src/backends/common/serialization.cpp
  Main
  opencv_gapi
  Module
+D:/Desktop/aruco/o4a/modules/gapi/backends/fluid/gfluidimgproc_func.sse4_1.cpp
+ Main
+ opencv_gapi
+ Module
 D:/Desktop/aruco/o4a/cvconfig.h
 D:/Desktop/aruco/o4a/opencv2/opencv_modules.hpp

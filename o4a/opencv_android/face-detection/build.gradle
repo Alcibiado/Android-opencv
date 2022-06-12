@@ -17,7 +17,6 @@ android {
                 targets "detection_based_tracker"
             }
         }
-
     }
     buildTypes {
         release {

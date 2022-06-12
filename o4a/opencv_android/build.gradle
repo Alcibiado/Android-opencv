@@ -49,7 +49,7 @@ gradle.afterProject { project ->
                         universalApk false
                         
 reset()
-include 'armeabi-v7a'
+include 'x86'
 
                     }
                 }

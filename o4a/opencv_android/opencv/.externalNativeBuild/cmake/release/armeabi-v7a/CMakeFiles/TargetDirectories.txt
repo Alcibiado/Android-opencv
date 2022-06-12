@@ -1,3 +1,0 @@
-D:/Desktop/aruco/o4a/opencv_android/opencv/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/opencv_jni_shared.dir
-D:/Desktop/aruco/o4a/opencv_android/opencv/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/Desktop/aruco/o4a/opencv_android/opencv/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir

@@ -551,6 +551,58 @@ D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/sumpixels.simd.hpp
  Main
  opencv_imgproc
  Module
+D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/imgwarp.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/resize.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/accum.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/box_filter.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/filter.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/color_hsv.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/color_rgb.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/color_yuv.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/median_blur.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/morph.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/smooth.sse4_1.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/opencv-4.4.0/modules/imgproc/src/corner.avx.cpp
+ Main
+ opencv_imgproc
+ Module
+D:/Desktop/aruco/o4a/modules/imgproc/accum.avx.cpp
+ Main
+ opencv_imgproc
+ Module
 D:/Desktop/aruco/o4a/cvconfig.h
 D:/Desktop/aruco/o4a/opencv2/opencv_modules.hpp
 D:/Desktop/aruco/o4a/modules/imgproc/opencl_kernels_imgproc.cpp.rule

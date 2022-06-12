@@ -191,6 +191,10 @@ D:/Desktop/aruco/opencv-4.4.0/modules/features2d/src/sift.simd.hpp
  Main
  opencv_features2d
  Module
+D:/Desktop/aruco/o4a/modules/features2d/sift.sse4_1.cpp
+ Main
+ opencv_features2d
+ Module
 D:/Desktop/aruco/o4a/cvconfig.h
 D:/Desktop/aruco/o4a/opencv2/opencv_modules.hpp
 D:/Desktop/aruco/o4a/modules/features2d/opencl_kernels_features2d.cpp.rule

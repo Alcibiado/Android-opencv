@@ -635,5 +635,9 @@ D:/Desktop/aruco/opencv-4.4.0/modules/dnn/src/vkcom/vulkan/vk_loader.hpp
  Main
  opencv_dnn
  Module
+D:/Desktop/aruco/o4a/modules/dnn/layers/layers_common.avx.cpp
+ Main
+ opencv_dnn
+ Module
 D:/Desktop/aruco/o4a/cvconfig.h
 D:/Desktop/aruco/o4a/opencv2/opencv_modules.hpp

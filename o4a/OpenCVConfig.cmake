@@ -95,7 +95,7 @@ endif()
 
 
 # Android API level from which OpenCV has been compiled is remembered
-set(OpenCV_ANDROID_NATIVE_API_LEVEL "19")
+set(OpenCV_ANDROID_NATIVE_API_LEVEL "16")
 
 # ==============================================================
 #  Check OpenCV availability
